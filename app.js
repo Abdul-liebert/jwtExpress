@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const router = require('./routes/authRoutes');
+const router = require('./Routes/AuthRoutes');
+const todoRoute = require('./Routes/TodoRoute');
 const app = express();
 
 app.use(cors());
@@ -13,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/auth", router)
+app.use("/api", todoRoute);
 
 const port = 3000 || process.env.port;
 
